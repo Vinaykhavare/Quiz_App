@@ -1,19 +1,28 @@
-import React from 'react'
-import "../CSS/Navbar.css"
-import {Link} from "react-router-dom"
+import React, { useState } from 'react';
+import '../CSS/Navbar.css';
+
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/">🧠 QuizApp</Link>
+        <a href="/">QuizApp</a>
       </div>
-      <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li>
-       <li><Link to="/instructions">Quiz</Link></li>
-        
+
+      <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
+        <span className={isOpen ? "bar open" : "bar"}></span>
+        <span className={isOpen ? "bar open" : "bar"}></span>
+        <span className={isOpen ? "bar open" : "bar"}></span>
+      </div>
+
+      <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
+        <li><a href="/">Home</a></li>
+        <li><a href="/instructions">Instructions</a></li>
+        <li><a href="/quiz">Quiz</a></li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

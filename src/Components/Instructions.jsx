@@ -1,7 +1,7 @@
-import React from 'react'
-import "../CSS/Instructions.css"
+import React, { useState } from 'react';
+import "../CSS/Instructions.css";
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+
 const Instructions = () => {
   const [agreed, setAgreed] = useState(false);
   const navigate = useNavigate();
@@ -9,9 +9,10 @@ const Instructions = () => {
   const handleStart = () => {
     if (agreed) navigate('/quiz');
   };
+
   return (
     <div className="instructions-container">
-      <div className="instructions-box">
+      <div className="instructions-box fade-in">
         <h1>📘 Quiz Instructions</h1>
         <ul>
           <li>You will be presented with multiple-choice questions.</li>
@@ -35,7 +36,7 @@ const Instructions = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Instructions
+export default Instructions;

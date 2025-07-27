@@ -1,8 +1,8 @@
-import React from 'react'
-import "../CSS/Quiz.css"
-import { useState } from 'react';
+import React, { useState } from 'react';
+import '../CSS/Quiz.css';
 import { useNavigate } from 'react-router-dom';
 import questions from '../Data/questions';
+
 const Quiz = () => {
   const [current, setCurrent] = useState(0);
   const [score, setScore] = useState(0);
@@ -35,9 +35,10 @@ const Quiz = () => {
       });
     }
   };
+
   return (
     <div className="quiz-container">
-      <div className="quiz-box">
+      <div className="quiz-box fade-in">
         <h2 className="question">
           {current + 1}. {questions[current].question}
         </h2>
@@ -55,7 +56,7 @@ const Quiz = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Quiz
+export default Quiz;

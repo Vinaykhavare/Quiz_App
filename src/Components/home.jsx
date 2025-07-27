@@ -1,11 +1,13 @@
-import React from 'react'
-import "../CSS/Home.css"
+import React from 'react';
+import "../CSS/Home.css";
 import { useNavigate } from 'react-router-dom';
-const home = () => {
+
+const Home = () => {
   const navigate = useNavigate();
+
   return (
-   <div className="home-container">
-      <div className="home-content">
+    <div className="home-container">
+      <div className="home-content fade-in">
         <h1>Welcome to the React Quiz App</h1>
         <p>
           Test your knowledge with fun and interactive quizzes built with React!
@@ -16,12 +18,12 @@ const home = () => {
           Whether you're preparing for an exam or just want to challenge yourself,
           our quizzes are designed to help you learn and grow.
         </p>
-      <button className="get-started-btn" onClick={() => navigate('/instructions')}>
-  Get Started
-</button>
+        <button className="get-started-btn" onClick={() => navigate('/instructions')}>
+          Get Started
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default home
+export default Home;

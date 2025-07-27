@@ -1,13 +1,15 @@
-import React from 'react'
-import "../CSS/Score.css"
+import React from 'react';
+import '../CSS/Score.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+
 const Score = () => {
-   const { state } = useLocation();
+  const { state } = useLocation();
   const navigate = useNavigate();
   const { score, total, answers } = state || {};
+
   return (
-      <div className="result-container">
-      <div className="result-box">
+    <div className="result-container">
+      <div className="result-box fade-in">
         <h1>Quiz Completed ✅</h1>
         <h2>Your Score: {score} / {total}</h2>
 
@@ -31,7 +33,7 @@ const Score = () => {
         <button onClick={() => navigate('/quiz')}>Try Again</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Score
+export default Score;

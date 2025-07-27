@@ -1,21 +1,30 @@
 .quiz-container {
-  background: linear-gradient(to right, #232526, #414345);
+  background: linear-gradient(-45deg, #2c3e50, #4ca1af, #000428, #004e92);
+  background-size: 400% 400%;
+  animation: quizBG 15s ease infinite;
   min-height: 100vh;
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
   color: white;
 }
 
+@keyframes quizBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .quiz-box {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.06);
   padding: 2rem;
   border-radius: 12px;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   text-align: center;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .question {
@@ -30,23 +39,47 @@
 }
 
 .options button {
-  padding: 12px;
+  padding: 12px 20px;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   background-color: #ffffff;
-  color: #232526;
+  color: #2c3e50;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .options button:hover {
-  background-color: #414345;
+  background-color: #4ca1af;
   color: white;
+  transform: scale(1.03);
 }
 
 .progress {
   margin-top: 1.5rem;
   font-size: 0.95rem;
-  color: #ccc;
+  color: #e0e0e0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .question {
+    font-size: 1.2rem;
+  }
+
+  .options button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
 }

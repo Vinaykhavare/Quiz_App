@@ -1,8 +1,9 @@
-import React from 'react'
-import "../CSS/Footer.css"
-const footer = () => {
+import React from 'react';
+import "../CSS/Footer.css";
+
+const Footer = () => {
   return (
-  <footer className="footer">
+    <footer className="footer">
       <p>&copy; {new Date().getFullYear()} QuizApp. All rights reserved.</p>
       <div className="footer-links">
         <a href="/">Home</a>
@@ -10,7 +11,7 @@ const footer = () => {
         <a href="/instructions">Instructions</a>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default footer
+export default Footer;
