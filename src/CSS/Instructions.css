@@ -1,0 +1,59 @@
+.instructions-container {
+  background: linear-gradient(to right, #1c1c1c, #434343);
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructions-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.instructions-box h1 {
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.instructions-box ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.instructions-box li {
+  margin-bottom: 0.7rem;
+  line-height: 1.6;
+}
+
+.checkbox {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+button {
+  padding: 10px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #ffd700;
+  color: #1c1c1c;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+button:hover:enabled {
+  background-color: #ffb400;
+}

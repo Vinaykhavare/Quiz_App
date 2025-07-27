@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Global font and base styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px; /* Increased base font size */
+  background-color: #111; /* optional dark background */
+  color: white; /* optional light text */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+}
