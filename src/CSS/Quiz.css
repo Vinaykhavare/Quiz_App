@@ -1,37 +1,52 @@
 .quiz-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  min-height: 100vh;
   background: linear-gradient(-45deg, #2c3e50, #4ca1af, #000428, #004e92);
   background-size: 400% 400%;
   animation: quizBG 15s ease infinite;
-  min-height: 100vh;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: white;
 }
 
 @keyframes quizBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
+.quiz-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: 2rem;
+}
+
+/* Quiz box */
 .quiz-box {
+  flex: 1;
   background-color: rgba(255, 255, 255, 0.06);
   padding: 2rem;
   border-radius: 12px;
-  width: 100%;
-  max-width: 700px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   text-align: center;
   animation: fadeIn 1s ease-in-out;
 }
 
+/* Question */
 .question {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
+/* Options */
 .options {
   display: flex;
   flex-direction: column;
@@ -56,16 +71,64 @@
   transform: scale(1.03);
 }
 
+/* Progress */
 .progress {
   margin-top: 1.5rem;
   font-size: 0.95rem;
   color: #e0e0e0;
 }
 
-/* Animation */
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  position: sticky;
+  top: 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1rem;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+/* Number buttons */
+.number-btn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.answered {
+  background-color: #2ecc71; /* Green */
+}
+
+.unanswered {
+  background-color: #e74c3c; /* Red */
+}
+
+.number-btn.active {
+  outline: 2px solid #f1c40f; /* Yellow border */
+  transform: scale(1.1);
+}
+
+/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .fade-in {
@@ -74,12 +137,16 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .question {
-    font-size: 1.2rem;
+  .quiz-content {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .options button {
-    font-size: 0.95rem;
-    padding: 10px;
+  .sidebar {
+    position: relative;
+    width: 100%;
+    max-height: unset;
+    grid-template-columns: repeat(10, 1fr);
+    margin-top: 2rem;
   }
 }

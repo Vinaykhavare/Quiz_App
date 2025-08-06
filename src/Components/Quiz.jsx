@@ -13,14 +13,14 @@ const Quiz = () => {
     const correct = questions[current].answer;
     const updatedScore = selected === correct ? score + 1 : score;
 
-    setAnswers([
-      ...answers,
-      {
-        question: questions[current].question,
-        selected,
-        correct,
-      },
-    ]);
+    const newAnswers = [...answers];
+    newAnswers[current] = {
+      question: questions[current].question,
+      selected,
+      correct,
+    };
+
+    setAnswers(newAnswers);
 
     if (current + 1 < questions.length) {
       setCurrent(current + 1);
@@ -30,29 +30,53 @@ const Quiz = () => {
         state: {
           score: selected === correct ? updatedScore : score,
           total: questions.length,
-          answers,
+          answers: newAnswers,
         },
       });
     }
   };
 
+  const jumpToQuestion = (index) => {
+    setCurrent(index);
+  };
+
   return (
     <div className="quiz-container">
-      <div className="quiz-box fade-in">
-        <h2 className="question">
-          {current + 1}. {questions[current].question}
-        </h2>
+      <div className="quiz-content">
+        <div className="quiz-box fade-in">
+          <h2 className="question">
+            {current + 1}. {questions[current].question}
+          </h2>
 
-        <div className="options">
-          {questions[current].options.map((option, index) => (
-            <button key={index} onClick={() => handleAnswer(option)}>
-              {option}
-            </button>
-          ))}
+          <div className="options">
+            {questions[current].options.map((option, index) => (
+              <button key={index} onClick={() => handleAnswer(option)}>
+                {option}
+              </button>
+            ))}
+          </div>
+
+          <div className="progress">
+            Question {current + 1} of {questions.length}
+          </div>
         </div>
 
-        <div className="progress">
-          Question {current + 1} of {questions.length}
+        <div className="sidebar">
+          {questions.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => jumpToQuestion(i)}
+              className={`number-btn ${
+                i === current
+                  ? 'active'
+                  : answers[i]
+                  ? 'answered'
+                  : 'unanswered'
+              }`}
+            >
+              {i + 1}
+            </button>
+          ))}
         </div>
       </div>
     </div>
